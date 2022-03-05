@@ -1,12 +1,12 @@
 const express = require("express");
-const path = __dirname + './server/views/';
+const path = __dirname + '/server/views/';
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const cors = require("cors");
 
 const app = express();
 
-app.use(express.static(path));
+// app.use(express.static(path));
 
 const corsOptions = {
     origin: "http://localhost:8081"
@@ -22,9 +22,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const db = require("./server/config/mongoose");
 
 // simple route
-app.get('/', function (req,res) {
-    res.sendFile(path + "index.html");
-});
+// app.get('/', function (req,res) {
+//     res.sendFile(path + "index.html");
+// });
 
 // use express router
 app.use('/', require('./server/routes'));
